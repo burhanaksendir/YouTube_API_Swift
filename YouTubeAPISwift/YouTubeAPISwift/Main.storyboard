@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bvs-6b-6Lv">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Videos-->
+        <scene sceneID="iWa-Qn-S0j">
+            <objects>
+                <tableViewController title="Videos" id="YTD-BC-Brm" customClass="ShowYouTubeChannelTVC" customModule="YouTubeAPISwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="7SK-sr-7we">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="QDM-QF-9EE">
+                            <rect key="frame" x="0.0" y="174" width="600" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoCellID" id="xef-bw-isP" customClass="VideoCell" customModule="YouTubeAPISwift" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xef-bw-isP" id="jmg-4E-XrE">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qEH-EH-Ub4">
+                                            <rect key="frame" x="8" y="15" width="100" height="56"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="WXX-Pg-WOf"/>
+                                                <constraint firstAttribute="height" constant="56" id="m10-Kw-o3J"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JpH-Zk-Rj3">
+                                            <rect key="frame" x="123" y="8" width="464" height="66.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JpH-Zk-Rj3" firstAttribute="top" secondItem="jmg-4E-XrE" secondAttribute="topMargin" id="Bhl-Gr-Ned"/>
+                                        <constraint firstItem="qEH-EH-Ub4" firstAttribute="top" secondItem="jmg-4E-XrE" secondAttribute="topMargin" constant="7" id="Lme-g8-LoY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="JpH-Zk-Rj3" secondAttribute="bottom" constant="5" id="Z7F-bN-eW9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JpH-Zk-Rj3" secondAttribute="trailing" constant="5" id="d7R-oI-mlQ"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="qEH-EH-Ub4" secondAttribute="bottom" constant="8" id="kGT-NJ-O37"/>
+                                        <constraint firstItem="qEH-EH-Ub4" firstAttribute="leading" secondItem="jmg-4E-XrE" secondAttribute="leadingMargin" id="lfE-LB-EGb"/>
+                                        <constraint firstItem="JpH-Zk-Rj3" firstAttribute="leading" secondItem="qEH-EH-Ub4" secondAttribute="trailing" constant="15" id="qfN-hf-0e1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="videoThumbnail" destination="qEH-EH-Ub4" id="URC-du-4ZS"/>
+                                    <outlet property="videoTitle" destination="JpH-Zk-Rj3" id="PEA-6E-eCp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YTD-BC-Brm" id="7fQ-0I-cG3"/>
+                            <outlet property="delegate" destination="YTD-BC-Brm" id="Gf1-Pf-alI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="WBb-1z-A7G"/>
+                    <connections>
+                        <outlet property="loadingActivityIndicator" destination="QDM-QF-9EE" id="e8N-ol-uWp"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HAx-Y0-uXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="987" y="273"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1FE-pP-hLe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bvs-6b-6Lv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="404-YC-RwY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YTD-BC-Brm" kind="relationship" relationship="rootViewController" id="tL2-v7-wPq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="exc-Jg-JFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="175" y="273"/>
+        </scene>
+    </scenes>
+</document>
